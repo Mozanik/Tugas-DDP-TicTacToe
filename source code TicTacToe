@@ -4,7 +4,7 @@ using namespace std;
 struct Pemain {
     string nama;
     char simbol;
-    int menang;
+    int win;
 };
 
 char papan[3][3] = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
@@ -27,7 +27,7 @@ void mulaipermainan() {
   	cout << " Start The Game!!" << endl;
   	cout << "------------------" << endl;
     
-    for (int i = 0; i < 3; i++) { // berfungsi untuk mencetak baris dan kolom tic tac toe ddengan memanggil array 2 dimensi yaitu papan
+    for (int i = 0; i < 3; i++) { // berfungsi untuk mencetak baris dan kolom tic tac toe dg memanggil array 2 dimensi
         cout << "  " << papan[i][0] << "  |  " << papan[i][1] << "  |  " << papan[i][2] << "  \n";
         if (i < 2) {  
             cout << "-----|-----|-----\n";
@@ -48,14 +48,14 @@ bool cekseri() { // berfungsi untuk mengecek seri dengan menggunkan perulangan f
 
 bool cekpemenang(char pemain) { // berfungsi untuk mengecek pemenang yakni baris, kolom dan diagonal
     for (int i = 0; i < 3; i++) {
-        if ((papan[i][0] == pemain && papan[i][1] == pemain && papan[i][2] == pemain) || // baris
-            (papan[0][i] == pemain && papan[1][i] == pemain && papan[2][i] == pemain)) { // kolom
+        if ((papan[i][0] == pemain && papan[i][1] == pemain && papan[i][2] == pemain) || 
+            (papan[0][i] == pemain && papan[1][i] == pemain && papan[2][i] == pemain)) { 
             return true; 
         }
     }
 
-    if ((papan[0][0] == pemain && papan[1][1] == pemain && papan[2][2] == pemain) || // diagonal utama
-        (papan[0][2] == pemain && papan[1][1] == pemain && papan[2][0] == pemain)) { // diagonal sekunder
+    if ((papan[0][0] == pemain && papan[1][1] == pemain && papan[2][2] == pemain) || 
+        (papan[0][2] == pemain && papan[1][1] == pemain && papan[2][0] == pemain)) { 
         return true;
     }
 
