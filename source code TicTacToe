@@ -35,6 +35,17 @@ void mulaipermainan() {
     }
 }
 
+bool cekseri() { // berfungsi untuk mengecek seri dengan menggunkan perulangan for dengan jumlah baris dan kolom terisi semua
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (papan[i][j] != 'X' && papan[i][j] != 'O') {
+                return false;  // Ada kotak yang masih kosong
+            }
+        }
+    }
+    return true;  // Semua kotak terisi
+}
+
 bool cekpemenang(char pemain) { // berfungsi untuk mengecek pemenang yakni baris, kolom dan diagonal
     for (int i = 0; i < 3; i++) {
         if ((papan[i][0] == pemain && papan[i][1] == pemain && papan[i][2] == pemain) || // baris
@@ -51,16 +62,6 @@ bool cekpemenang(char pemain) { // berfungsi untuk mengecek pemenang yakni baris
     return false;
 }
 
-bool cekseri() { // berfungsi untuk mengecek seri dengan menggunkan perulangan for dengan jumlah baris dan kolom terisi semua
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (papan[i][j] != 'X' && papan[i][j] != 'O') {
-                return false;  // Ada kotak yang masih kosong
-            }
-        }
-    }
-    return true;  // Semua kotak terisi
-}
 
 int inputpemain(Pemain& pemain) { // berfungsi untuk pergantian pemain
     int pilihan;
